@@ -1,0 +1,33 @@
+// REGISTER
+const registerForm = document.getElementById('registerForm');
+if (registerForm) {
+    registerForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = document.getElementById('regEmail').value;
+        const password = document.getElementById('regPassword').value;
+        auth.createUserWithEmailAndPassword(email, password)
+            .then(() => {
+                window.location.href = 'index.html';
+            })
+            .catch(error => {
+                alert(error.message);
+            });
+    });
+}
+
+// LOGIN
+const loginForm = document.getElementById('loginForm');
+if (loginForm) {
+    loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = document.getElementById('loginEmail').value;
+        const password = document.getElementById('loginPassword').value;
+        auth.signInWithEmailAndPassword(email, password)
+            .then(() => {
+                window.location.href = 'home.html';
+            })
+            .catch(error => {
+                alert(error.message);
+            });
+    });
+}
